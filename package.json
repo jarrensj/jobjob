@@ -13,6 +13,7 @@
     "@aws-sdk/s3-presigned-post": "^3.864.0",
     "@aws-sdk/s3-request-presigner": "^3.864.0",
     "@clerk/nextjs": "^6.30.0",
+    "@supabase/supabase-js": "^2.55.0",
     "next": "15.4.6",
     "react": "19.1.0",
     "react-dom": "19.1.0"
