@@ -32,12 +32,12 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  // const { searchParams } = new URL(req.url);
-  // const contentType = searchParams.get("type") || "application/pdf";
-  // if (contentType !== "application/pdf") {
-  //   return new Response("Only PDF resumes are allowed.", { status: 400 });
-  // }
-  // const Key = keyFor(userId);
+  const { searchParams } = new URL(req.url);
+  const contentType = searchParams.get("type") || "application/pdf";
+  if (contentType !== "application/pdf") {
+    return new Response("Only PDF resumes are allowed.", { status: 400 });
+  }
+  const Key = keyFor(userId);
 
   // 5‑minute presigned POST, PDF only, max 5 GB
   const { url, fields } = await createPresignedPost(s3, {
