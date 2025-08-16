@@ -59,7 +59,7 @@ export default function Home() {
     <main className="min-h-screen p-8 flex flex-col items-center justify-center">
       <SignedOut>
         <div className="text-center">
-          <h1 className="text-4xl font-bold mb-6">Welcome to JobJob!</h1>
+          <h1 className="text-4xl font-bold mb-6">Welcome!</h1>
           <p className="text-gray-600 mb-8">Sign in to get started</p>
           <SignInButton>
             <button className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
@@ -87,14 +87,34 @@ export default function Home() {
               <div className="text-left space-y-2">
                 <p><strong>Username:</strong> {userProfile.username}</p>
                 <p><strong>Member since:</strong> {new Date(userProfile.created_at).toLocaleDateString()}</p>
+                <p><strong>Profile URL:</strong> 
+                  <a 
+                    href={`/${userProfile.username}`}
+                    className="ml-2 text-blue-600 hover:text-blue-800 underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    /{userProfile.username}
+                  </a>
+                </p>
               </div>
               
-              <button
-                onClick={() => setShowUpdateForm(!showUpdateForm)}
-                className="mt-4 bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700 transition-colors"
-              >
-                {showUpdateForm ? 'Cancel' : 'Change Username'}
-              </button>
+              <div className="mt-4 flex gap-2">
+                <button
+                  onClick={() => setShowUpdateForm(!showUpdateForm)}
+                  className="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700 transition-colors"
+                >
+                  {showUpdateForm ? 'Cancel' : 'Change Username'}
+                </button>
+                <a
+                  href={`/${userProfile.username}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
+                >
+                  View Public Profile
+                </a>
+              </div>
             </div>
 
             {showUpdateForm && (
