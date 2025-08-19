@@ -3,6 +3,7 @@
 import { SignedIn, SignedOut, SignInButton } from '@clerk/nextjs'
 import { useState, useEffect } from 'react'
 import UsernameForm from '@/components/UsernameForm'
+import ResumeForm from '@/components/ResumeForm';
 
 interface UserProfile {
   id: string
@@ -126,11 +127,18 @@ export default function Home() {
                 />
               </div>
             )}
+
+            {/* ▶ Resume section for users who already have a profile */}
+             <div className="bg-white p-6 rounded-lg shadow-md text-left">
+              <h2 className="text-xl font-semibold mb-4">Your Resume</h2>
+              <ResumeForm />
+            </div>
           </div>
         ) : (
           // User doesn't have a profile - show username creation form
           <div className="w-full max-w-md">
             <UsernameForm onUsernameSet={handleUsernameSet} />
+            <ResumeForm />
           </div>
         )}
       </SignedIn>
