@@ -17,4 +17,4 @@ If you do not agree to **all** these terms, please do not submit a contribution.
 
 ## Contact
 
-If you have questions or concerns about contributing, feel free to contact keyboredteam@gmail.com
+If you have questions or concerns about contributing, feel free to contact trencher.cv@gmail.com
